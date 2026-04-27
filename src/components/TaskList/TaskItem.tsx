@@ -1,4 +1,4 @@
-import type { Task, Status, TaskItemProps } from "../../types";
+import type { Status, TaskItemProps } from "../../types";
 
 function TaskItem({task, onStatusChange, onDelete}: TaskItemProps) {
     return (
