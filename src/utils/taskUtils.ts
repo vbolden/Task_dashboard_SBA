@@ -1,8 +1,8 @@
-// ADD DATA LOGIC FOR FILTERING AND SEARCH
-import type { Task, TaskFilterProps } from "../types";
+// ADD DATA LOGIC FOR FILTER, SEARCH, AND SORT
+import type { Task, TaskFilterOptions, TaskFormData, TaskFormErrors } from "../types";
 
 // FUNCTION TO CHECK IF TASK STATUS, PRIORITY, OR SEARCH MATCHES SELECTED STATUS, FILTER, OR SEARCH
-export function filterTasks(tasks: Task[], filters: TaskFilterProps) {
+export function filterTasks(tasks: Task[], filters: TaskFilterOptions) {
     // FIRST RETURNS FINAL FILTERED ARRAY
     // LOOP THROUGH EACH TASK TO SEE IF STATUS MATCHES FILTER SELECTED, PRIORITY, OR SEARCH
     return tasks.filter(task => {
@@ -53,5 +53,28 @@ export function sortTasks(tasks: Task[], sortBy: string) {
                 new Date(b.dueDate).getTime()
             );
         });
+    } return tasks;
+}
+
+// ADD FORM VALIDATION
+export function validateTask(data: TaskFormData) {
+    // VARIABLE TO STORE VALIDATION ERRORS
+    const errors: TaskFormErrors = {};
+
+    if(!data.title.trim()) {
+        errors.title = "Title is required";
     }
+    if(!data.description.trim()) {
+        errors.description = "Description is required";
+    }
+    if(!data.priority) {
+        errors.priority = "Priority is required";
+    }
+    // DATE OPTIONAL, CHECK IF VALUE EXISTS AND IS NOT A NUMBER
+    // CONVERT STRING INTO TIMESTAMP
+    if(data.dueDate && isNaN(Date.parse(data.dueDate))) {
+        errors.dueDate = "Invalid date";
+    }
+
+    return errors;
 }
