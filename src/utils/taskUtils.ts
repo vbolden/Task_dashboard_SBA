@@ -1,8 +1,9 @@
 // ADD DATA LOGIC FOR FILTER, SEARCH, AND SORT
-import type { Task, TaskFilterOptions, TaskFormData, TaskFormErrors } from "../types";
+import type { Task, FilterOptions, TaskFormData, TaskFormErrors, SortOption, Priority } from "../types";
+
 
 // FUNCTION TO CHECK IF TASK STATUS, PRIORITY, OR SEARCH MATCHES SELECTED STATUS, FILTER, OR SEARCH
-export function filterTasks(tasks: Task[], filters: TaskFilterOptions) {
+export function filterTasks(tasks: Task[], filters: FilterOptions) {
     // FIRST RETURNS FINAL FILTERED ARRAY
     // LOOP THROUGH EACH TASK TO SEE IF STATUS MATCHES FILTER SELECTED, PRIORITY, OR SEARCH
     return tasks.filter(task => {
@@ -16,7 +17,7 @@ export function filterTasks(tasks: Task[], filters: TaskFilterOptions) {
 
         // SAME FOR SEARCH (CHANGE TO LOWER CASE FOR EASY MATCHING)
         const matchesSearch =
-            !filters.search || task.title.toLocaleLowerCase().includes(filters.search.toLocaleLowerCase());
+            !filters.search || task.title.toLowerCase().includes(filters.search.toLowerCase());
 
         // RETURNS VARIABLES TO TELL .FILTER() TO KEEP OR REMOVE TASK
         return matchesStatus && matchesPriority && matchesSearch;
@@ -24,11 +25,11 @@ export function filterTasks(tasks: Task[], filters: TaskFilterOptions) {
 }
 
 // FUNCTION FOR SORTING TASKS
-export function sortTasks(tasks: Task[], sortBy: string) {
+export function sortTasks(tasks: Task[], sortBy: SortOption) {
     // ADD IF ELSE STATEMENT TO HANDLE SORTING BY PRIORITY OR DATE
     // ASSIGN EACH PRIORITY A NUMERIC VALUE TO SORT FROM HIGH TO LOW
     if (sortBy === "priority") {
-        const priorityOrder: Record<string, number> = {
+        const priorityOrder: Record<Priority, number> = {
             high: 3,
             medium: 2,
             low: 1,
