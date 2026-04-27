@@ -13,6 +13,12 @@ export interface Task {
     dueDate?: string
 }
 
+export interface TaskItemProps {
+    task: Task;
+    onStatusChange: (id: string, status: Status) => void;
+    onDelete: (id:string) => void;
+}
+
 export interface TaskFormData {
     title: string;
     description: string;
