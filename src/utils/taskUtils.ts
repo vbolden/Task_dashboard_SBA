@@ -41,8 +41,17 @@ export function sortTasks(tasks: Task[], sortBy: string) {
     } else if (sortBy === "date") { 
         return [...tasks].sort((a, b) => {
             // DUEDATE IS OPTIONAL, HANDLE MISSING DUE DATES
-            
-        }
-        )
+            if(!a.dueDate && !b.dueDate) return 0;
+            if (!a.dueDate) return 1 // A NO DUE DATE GOES AFTER B
+            if (!b.dueDate) return -1 // B NO DUE DATE GOES AFTER A
+
+            // BOTH HAVE DUE DATES COMPARE NORMALLY
+            // NEGATIVE A COMES FIRST 
+            // POSITIVE B COMES FIRST
+            return (
+                new Date(a.dueDate).getTime() - 
+                new Date(b.dueDate).getTime()
+            );
+        });
     }
 }
