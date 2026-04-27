@@ -18,3 +18,9 @@ export interface TaskFormProps {
     priority: Priority;
     dueDate?: string;
 }
+
+export interface TaskFilterProps {
+    status?: Status;
+    priority?: Priority;
+    search?: string;
+}
