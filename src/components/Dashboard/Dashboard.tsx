@@ -41,8 +41,20 @@ function Dashboard() {
     };
 
     // FUNCTION TO HANDLE UPDATING A TASK
-    const handleUpdateTask = () => {
-        
+    const handleUpdateTask = (id: string, data: TaskFormData) => {
+        setTasks(prev => 
+            prev.map(task => 
+                task.id === id
+                ? {...task, ...data}
+                : task
+            )
+        )
+        setEditTask(null); // EXIT EDIT MODE SET BACK TO INITIAL VALUE
+    }
+
+    // FUNCTION TO HANDLE EDIT TRIGGER
+    const handleEdit = (task: Task) => {
+        setEditTask(task)
     }
 
     // FUNCTION TO HANDLE DELETING A TASK
@@ -60,6 +72,8 @@ function Dashboard() {
 
             <TaskForm 
             onAddTask={handleAddTask}
+            onUpdateTask={handleUpdateTask}
+            editingTask={editTask}
              />
 
             <TaskFilter 
@@ -71,7 +85,8 @@ function Dashboard() {
             <TaskList
             tasks={sorted}
             onStatusChange={handleStatusChange}
-            onDelete={handleDelete} />
+            onDelete={handleDelete}
+            onEdit={handleEdit} />
         </div>
     );
 }
