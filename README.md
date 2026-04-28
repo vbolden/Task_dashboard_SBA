@@ -1,75 +1,18 @@
-# React + TypeScript + Vite
+## Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Create a Task Management Dashboard using React and TypeScript. Build a functional, real-world dashboard application to test your understanding of React components, state management, TypeScript integration, form handling, and component composition.
 
-Currently, two official plugins are available:
+### Built with
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- CSS custom properties
+- [React] - TS library
 
-## React Compiler
+### Useful resources
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- TypeScript Docs (https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)
+- React Dev [keys] (https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key)
+- React Dev [useEffect] (https://react.dev/reference/react/useEffect)
 
-Note: This will impact Vite dev & build performances.
+# Reflection
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+I implemented React and TypeScript by using components to handle different sections of the Dashboard and by defining interfaces with typing. The biggest challenge I faced was making a plan and organizing where I wanted to start in the project and what I wanted to start with. I had to read over the directions several times and create the hierarchy of the components first, then I was able to plan my approach a little better. For state management, after I determined the hierarchy of the components I started to define each ones responsibility. I put the state management in the Dashboard component because it is the parent component and acts as the main controller for the app. I wasn't able to add data persistence yet, but I will revisit this app and add it later on. 
