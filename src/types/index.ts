@@ -1,6 +1,6 @@
 // EXPORT INTERFACES AND TYPES
 
-export type Status = "pending" | "in-progress" | "done";
+export type Status = "todo" | "in-progress" | "done";
 export type Priority = "low" | "medium" | "high";
 export type SortOption = "priority" | "date";
 
