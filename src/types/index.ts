@@ -38,6 +38,13 @@ export interface FilterOptions {
     search?: string;
 }
 
+export interface TaskFilterProps {
+    filters: FilterOptions;
+    sortBy: SortOption;
+    onFilterChange: (filters: FilterOptions) => void;
+    onSortChange: (sort: SortOption) => void;
+}
+
 export type TaskFormErrors = Partial<Record<keyof TaskFormData, string>>;
 
 export interface TaskFormProps {
