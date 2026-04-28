@@ -67,7 +67,7 @@ function Dashboard() {
     const sorted = sortTasks(filtered, sortBy);
 
     return (
-        <div>
+        <div className="container">
             <h1>Task Dashboard</h1>
 
             <TaskForm 
