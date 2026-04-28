@@ -1,4 +1,4 @@
-import type { FilterOptions, Status, Priority, SortOption, TaskFilterProps } from "../../types";
+import type { Status, Priority, SortOption, TaskFilterProps } from "../../types";
 
 function TaskFilter ({filters, sortBy, onFilterChange, onSortChange}: TaskFilterProps) {
 
