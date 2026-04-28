@@ -16,7 +16,7 @@ export interface Task {
 export interface TaskItemProps {
     task: Task;
     onStatusChange: (id: string, status: Status) => void;
-    onDelete: (id:string) => void;
+    onDelete: (id: string) => void;
 }
 
 export interface TaskListProps {
@@ -39,3 +39,7 @@ export interface FilterOptions {
 }
 
 export type TaskFormErrors = Partial<Record<keyof TaskFormData, string>>;
+
+export interface TaskFormProps {
+    onAddTask: (data: TaskFormData) => void;
+}
