@@ -39,10 +39,33 @@ function Dashboard() {
         );
     };
 
+    // FUNCTION TO HANDLE DELETING A TASK
+    const handleDelete = (id: string) => {
+        setTasks((prev) => prev.filter(task => task.id !== id));
+    };
+
+    // APPLY FILTER THEN SORT
+    const filtered = filterTasks(tasks, filters);
+    const sorted = sortTasks(filtered, sortBy);
+
     return (
+        <div>
+            <h1>Task Dashboard</h1>
 
-    )
+            <TaskForm onAddTask={handleAddTask} />
 
+            <TaskFilter 
+            filters={filters}
+            sortBy={sortBy}
+            onFilterChange={setFilters}
+            onSortChange={setSortBy} />
+
+            <TaskList
+            tasks={sorted}
+            onStatusChange={handleStatusChange}
+            onDelete={handleDelete} />
+        </div>
+    );
 }
 
 export default Dashboard;
