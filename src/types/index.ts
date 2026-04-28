@@ -47,6 +47,9 @@ export interface TaskFilterProps {
 
 export type TaskFormErrors = Partial<Record<keyof TaskFormData, string>>;
 
+// ADD PROPS FOR EDITING TASKS
 export interface TaskFormProps {
     onAddTask: (data: TaskFormData) => void;
+    onUpdateTask: (id: string, data: TaskFormData) => void;
+    editingTask?: Task | null;
 }
