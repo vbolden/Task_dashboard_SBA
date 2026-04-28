@@ -1,12 +1,9 @@
 import './App.css'
+import Dashboard from './components/Dashboard/Dashboard.tsx'
 
 function App() {
 
-  return (
-    <>
-
-    </>
-  )
+  return <Dashboard />
 }
 
 export default App
