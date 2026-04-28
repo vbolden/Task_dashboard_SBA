@@ -1,6 +1,6 @@
 import type { Status, TaskItemProps } from "../../types";
 
-function TaskItem({task, onStatusChange, onDelete}: TaskItemProps) {
+function TaskItem({task, onStatusChange, onDelete, onEdit}: TaskItemProps) {
     return (
         <div>
             <h3>{task.title}</h3>
@@ -18,6 +18,10 @@ function TaskItem({task, onStatusChange, onDelete}: TaskItemProps) {
                 <option value="in-progress">In Progress</option>
                 <option value="done">Done</option>
             </select>
+
+            <button
+            onClick={() => onEdit(task)}>
+                Edit</button>
 
             <button
             onClick={() => onDelete(task.id)}
