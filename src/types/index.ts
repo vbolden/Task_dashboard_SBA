@@ -2,7 +2,7 @@
 
 export type Status = "todo" | "in-progress" | "done";
 export type Priority = "low" | "medium" | "high";
-export type SortOption = "priority" | "date";
+export type SortOption = "priority" | "date" | "";
 
 export interface Task {
     id: string;
