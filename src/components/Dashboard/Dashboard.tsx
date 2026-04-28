@@ -12,6 +12,7 @@ function Dashboard() {
     const [tasks, setTasks] = useState<Task[]>([]);
     const [filters, setFilters] = useState<FilterOptions>({});
     const [sortBy, setSortBy] = useState<SortOption>("date");
+    const [editTask, setEditTask] = useState<Task | null>(null); // SET EDIT STATE NULL 
     // const [theme, setTheme] = useState<"light" | "dark">("dark");
 
 
@@ -39,6 +40,11 @@ function Dashboard() {
         );
     };
 
+    // FUNCTION TO HANDLE UPDATING A TASK
+    const handleUpdateTask = () => {
+        
+    }
+
     // FUNCTION TO HANDLE DELETING A TASK
     const handleDelete = (id: string) => {
         setTasks((prev) => prev.filter(task => task.id !== id));
@@ -52,7 +58,9 @@ function Dashboard() {
         <div>
             <h1>Task Dashboard</h1>
 
-            <TaskForm onAddTask={handleAddTask} />
+            <TaskForm 
+            onAddTask={handleAddTask}
+             />
 
             <TaskFilter 
             filters={filters}
