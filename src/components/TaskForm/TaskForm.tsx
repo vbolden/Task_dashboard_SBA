@@ -98,7 +98,9 @@ function TaskForm ({onAddTask, onUpdateTask, editingTask}: TaskFormProps) {
             onChange={handleChange} />
             {errors.dueDate && <p>{errors.dueDate}</p>}
 
-            <button type="submit">Add Task</button>
+            <button type="submit">
+                {editingTask ? "Update Task" : "Add Task"}
+            </button>
         </form>
     );
 }
