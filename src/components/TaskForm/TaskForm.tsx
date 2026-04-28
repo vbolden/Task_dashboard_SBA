@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { TaskFormData, TaskFormErrors, TaskFormProps } from "../../types";
 import { validateTask } from "../../utils/taskUtils";
 
-function TaskForm ({onAddTask}: TaskFormProps) {
+function TaskForm ({onAddTask, onUpdateTask, editingTask}: TaskFormProps) {
     // ADD STATE FOR FORM DATA AND ERROR
     const [formData, setFormData] = useState<TaskFormData> ({
         title: "",
@@ -12,6 +12,19 @@ function TaskForm ({onAddTask}: TaskFormProps) {
     });
 
     const [errors, setErrors] = useState<TaskFormErrors>({});
+
+    // SYNC EDIT CHANGES WITH useEffect
+    useEffect(() => {
+        if(editingTask) {
+            setFormData({
+                title: editingTask.title,
+                description: editingTask.description,
+                priority: editingTask.priority,
+                dueDate: editingTask.dueDate || "",
+            });
+        }
+    },[editingTask])
+
 
     // CALLBACK FUNCTION FOR INPUT 
     const handleChange = (
@@ -24,7 +37,7 @@ function TaskForm ({onAddTask}: TaskFormProps) {
     };
 
     // CALLBACK FUNCTION FOR SUBMIT
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: React.SubmitEvent) => {
         // PREVENT PAGE REFRESH ON SUBMIT
         e.preventDefault();
 
@@ -35,7 +48,12 @@ function TaskForm ({onAddTask}: TaskFormProps) {
         // STOP FUNCTION EARLY IF THERE ARE ERRORS
         if (Object.keys(validationErrors).length > 0) return; 
 
-        onAddTask(formData);
+        // LOGIC FOR UPDATING TASK
+        if(editingTask) {
+            onUpdateTask(editingTask.id, formData);
+        } else{
+            onAddTask(formData);
+        }
 
         // RESET FORM 
         setFormData({
