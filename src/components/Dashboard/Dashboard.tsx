@@ -11,7 +11,7 @@ function Dashboard() {
     // STATES TO MANAGE
     const [tasks, setTasks] = useState<Task[]>([]);
     const [filters, setFilters] = useState<FilterOptions>({});
-    const [sortBy, setSortBy] = useState<SortOption>("date");
+    const [sortBy, setSortBy] = useState<SortOption>("");
     const [editTask, setEditTask] = useState<Task | null>(null); // SET EDIT STATE NULL 
     // const [theme, setTheme] = useState<"light" | "dark">("dark");
 
