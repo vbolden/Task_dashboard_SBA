@@ -48,8 +48,41 @@ function TaskForm ({onAddTask}: TaskFormProps) {
     };
 
     return (
-        
-    )
+        <form onSubmit={handleSubmit}>
+            <input 
+            name="title"
+            placeholder="Title"
+            value={formData.title}
+            onChange={handleChange} />
+            {errors.title && <p>{errors.title}</p>}
+
+            <input
+            name="description"
+            placeholder="Description"
+            value={formData.description}
+            onChange={handleChange} />
+            {errors.description && <p>{errors.description}</p>}
+
+            <select 
+            name="priority"
+            value={formData.priority}
+            onChange={handleChange} >
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            {errors.priority && <p>{errors.priority}</p>}
+
+            <input 
+            type="date"
+            name="dueDate"
+            value={formData.dueDate || ""} 
+            onChange={handleChange} />
+            {errors.dueDate && <p>{errors.dueDate}</p>}
+
+            <button type="submit">Add Task</button>
+        </form>
+    );
 }
 
 export default TaskForm;
