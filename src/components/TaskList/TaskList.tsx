@@ -1,7 +1,7 @@
 import type { TaskListProps } from "../../types";
 import TaskItem from "./TaskItem";
 
-function TaskList({tasks, onStatusChange, onDelete}: TaskListProps) {
+function TaskList({tasks, onStatusChange, onDelete, onEdit}: TaskListProps) {
     // UI IF THERE ARE NO TASKS IN LIST
     if(tasks.length === 0) {
         return <p>No Tasks Found.</p>
@@ -14,7 +14,8 @@ function TaskList({tasks, onStatusChange, onDelete}: TaskListProps) {
                 key={task.id}
                 task={task}
                 onStatusChange={onStatusChange}
-                onDelete={onDelete}/>
+                onDelete={onDelete}
+                onEdit={onEdit}/>
             ))}
         </div>
     );
