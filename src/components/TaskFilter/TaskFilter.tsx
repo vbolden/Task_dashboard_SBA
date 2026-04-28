@@ -21,8 +21,8 @@ function TaskFilter ({filters, sortBy, onFilterChange, onSortChange}: TaskFilter
             } >
                 <option value="">All</option>
                 <option value="todo">Todo</option>
-                <option value="in-progress">All</option>
-                <option value="done">All</option>
+                <option value="in-progress">In Progress</option>
+                <option value="done">Done</option>
             </select>
 
             <select
