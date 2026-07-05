@@ -1,4 +1,6 @@
 import type { Status, Priority, SortOption, TaskFilterProps } from "../../types";
+import "../../TaskFilter.css"
+import { FaSearch } from "react-icons/fa";
 
 function TaskFilter({ filters, sortBy, onFilterChange, onSortChange }: TaskFilterProps) {
 
@@ -6,13 +8,19 @@ function TaskFilter({ filters, sortBy, onFilterChange, onSortChange }: TaskFilte
         <div className="filter-card">
             <h2>Search & Filter</h2>
             <div className="filter-controls">
-                <input
-                    placeholder="Search.."
-                    value={filters.search || ""}
-                    onChange={(e) =>
-                        onFilterChange({ ...filters, search: e.target.value })
-                    } />
+                <div className="search-wrapper">
+                    <FaSearch className="search-icon" />
+
+                    <input
+                        className="search-input"
+                        placeholder="Search tasks..."
+                        value={filters.search || ""}
+                        onChange={(e) =>
+                            onFilterChange({ ...filters, search: e.target.value })
+                        } />
+                </div>
                 <select
+                    className="filter-select"
                     value={filters.status || ""}
                     onChange={(e) =>
                         onFilterChange({
@@ -26,6 +34,7 @@ function TaskFilter({ filters, sortBy, onFilterChange, onSortChange }: TaskFilte
                     <option value="done">Done</option>
                 </select>
                 <select
+                    className="filter-select"
                     value={filters.priority || ""}
                     onChange={(e) =>
                         onFilterChange({
@@ -36,9 +45,11 @@ function TaskFilter({ filters, sortBy, onFilterChange, onSortChange }: TaskFilte
                     <option value="">All</option>
                     <option value="low">Low</option>
                     <option value="medium">Medium</option>
-                    <option value="large">Large</option>
+                    <option value="large">High</option>
                 </select>
+
                 <select
+                    className="filter-select"
                     value={sortBy || ""}
                     onChange={(e) => onSortChange(e.target.value as SortOption)} >
                     <option value="">Sort by</option>
