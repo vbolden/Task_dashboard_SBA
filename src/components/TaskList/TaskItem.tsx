@@ -1,9 +1,10 @@
 import type { Status, TaskItemProps } from "../../types";
 import { FaEdit, FaTrash, FaCalendarAlt } from "react-icons/fa";
+import "../../TaskList.css"
 
 function TaskItem({ task, onStatusChange, onDelete, onEdit }: TaskItemProps) {
     return (
-        <article className="task-card">
+        <article className="task-card fade-in">
             <div className="task-header">
                 <h3>{task.title}</h3>
                 <span className={`priority ${task.priority}`}>
