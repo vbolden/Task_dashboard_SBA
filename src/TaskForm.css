@@ -1,0 +1,50 @@
+/* FORM */
+.task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.task-form h2 {
+    margin-bottom: .5rem;
+    color: var(--text-primary);
+}
+
+/* FORM GROUP */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.form-group label {
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+/* ROW */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* ERROR MSG */
+.error-message {
+    color: var(--danger);
+    font-size: .85rem;
+    margin-top: .25rem;
+}
+
+/* DATE INPUT */
+input[type="date"] {
+    color-scheme: dark;
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
