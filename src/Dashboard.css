@@ -1,0 +1,134 @@
+/* HEADER */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* STATS */
+.dashboard-stats {
+    display: flex;
+    gap: 1rem;
+}
+
+.stat-card {
+    min-width: 140px;
+    padding: 1.5rem;
+    text-align: center;
+    background: rgba(255, 255, 255, .08);
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.stat-card span {
+    color: var(--text-secondary);
+    font-size: .9rem;
+    margin-right: .2rem;
+}
+
+/* CONTROLS */
+.dashboard-controls {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* .dashboard-controls .card {
+    height: fit-content;
+} */
+
+/* TASK SECTION */
+.tasks-section {
+    margin-top: 2rem;
+}
+
+.tasks-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.tasks-header h2 {
+    margin: 0;
+}
+
+.tasks-header span {
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, .05);
+    padding: .45rem .9rem;
+    border-radius: 999px;
+}
+
+/* CARDS */
+.card {
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dashboard-stats {
+        width: 100%;
+
+        justify-content: space-between;
+    }
+
+    .dashboard-controls {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .dashboard-stats {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        width: 100%;
+    }
+
+    .stat-card {
+        min-width: auto;
+        padding: 1rem;
+    }
+
+    .stat-card h2 {
+        font-size: 1.6rem;
+    }
+
+    .tasks-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .75rem;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+}
