@@ -67,7 +67,7 @@ function Dashboard() {
     const sorted = sortTasks(filtered, sortBy);
 
     return (
-        <div className="dashboard">
+        <div className="dashboard fade-in">
             <header className="dashboard-header">
                 <div>
                     <h1>Task Dashboard</h1>
