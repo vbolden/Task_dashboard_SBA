@@ -4,6 +4,7 @@ import type { Task, TaskFormData, Status, FilterOptions, SortOption } from "../.
 import TaskForm from "../TaskForm/TaskForm";
 import TaskList from "../TaskList/TaskList";
 import TaskFilter from "../TaskFilter/TaskFilter";
+import '../../Dashboard.css';
 
 import { filterTasks, sortTasks } from "../../utils/taskUtils";
 
@@ -69,7 +70,7 @@ function Dashboard() {
     return (
         <div className="dashboard fade-in">
             <header className="dashboard-header">
-                <div>
+                <div className="header-text">
                     <h1>Task Dashboard</h1>
                     <p>Stay organized and keep track of your work.</p>
                 </div>
@@ -79,6 +80,7 @@ function Dashboard() {
                         <span>{tasks.length}</span>
                         <small>Total Tasks</small>
                     </div>
+
                     <div className="stat-card">
                         <span>
                             {tasks.filter(task => task.status === "done").length}
@@ -106,6 +108,11 @@ function Dashboard() {
             </section>
 
             <section className="tasks-section">
+                <div className="tasks-header">
+                    <h2>Your Tasks</h2>
+                    <span>{sorted.length} task(s)</span>
+                </div>
+
                 <TaskList
                     tasks={sorted}
                     onStatusChange={handleStatusChange}
