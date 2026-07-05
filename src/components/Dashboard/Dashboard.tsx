@@ -1,6 +1,6 @@
 // STATE MANAGER COMPONENT 
-import { useState } from "react"
-import type { Task, TaskFormData, Status, FilterOptions, SortOption } from "../../types"
+import { useState } from "react";
+import type { Task, TaskFormData, Status, FilterOptions, SortOption } from "../../types";
 import TaskForm from "../TaskForm/TaskForm";
 import TaskList from "../TaskList/TaskList";
 import TaskFilter from "../TaskFilter/TaskFilter";
@@ -29,7 +29,7 @@ function Dashboard() {
 
         // TAKE PREVIOUS TASKS ADDED IN ARRAY AND ADD NEW TASK TO THE ARRAY
         setTasks((prev) => [...prev, newTask]);
-    }
+    };
 
     // FUNCTION TO HANDLE STATUS CHANGE
     const handleStatusChange = (id: string, status: Status) => {
@@ -42,20 +42,20 @@ function Dashboard() {
 
     // FUNCTION TO HANDLE UPDATING A TASK
     const handleUpdateTask = (id: string, data: TaskFormData) => {
-        setTasks(prev => 
-            prev.map(task => 
+        setTasks(prev =>
+            prev.map(task =>
                 task.id === id
-                ? {...task, ...data}
-                : task
+                    ? { ...task, ...data }
+                    : task
             )
-        )
+        );
         setEditTask(null); // EXIT EDIT MODE SET BACK TO INITIAL VALUE
-    }
+    };
 
     // FUNCTION TO HANDLE EDIT TRIGGER
     const handleEdit = (task: Task) => {
-        setEditTask(task)
-    }
+        setEditTask(task);
+    };
 
     // FUNCTION TO HANDLE DELETING A TASK
     const handleDelete = (id: string) => {
@@ -67,26 +67,51 @@ function Dashboard() {
     const sorted = sortTasks(filtered, sortBy);
 
     return (
-        <div className="container">
-            <h1>Task Dashboard</h1>
+        <div className="dashboard">
+            <header className="dashboard-header">
+                <div>
+                    <h1>Task Dashboard</h1>
+                    <p>Stay organized and keep track of your work.</p>
+                </div>
 
-            <TaskForm 
-            onAddTask={handleAddTask}
-            onUpdateTask={handleUpdateTask}
-            editingTask={editTask}
-             />
+                <div className="dashboard-stats">
+                    <div className="stat-card">
+                        <span>{tasks.length}</span>
+                        <small>Total Tasks</small>
+                    </div>
+                    <div className="stat-card">
+                        <span>
+                            {tasks.filter(task => task.status === "done").length}
+                        </span>
+                        <small>Completed</small>
+                    </div>
+                </div>
+            </header>
 
-            <TaskFilter 
-            filters={filters}
-            sortBy={sortBy}
-            onFilterChange={setFilters}
-            onSortChange={setSortBy} />
+            <section className="dashboard-controls">
+                <div className="card">
+                    <TaskForm
+                        onAddTask={handleAddTask}
+                        onUpdateTask={handleUpdateTask}
+                        editingTask={editTask}
+                    />
+                </div>
+                <div className="card">
+                    <TaskFilter
+                        filters={filters}
+                        sortBy={sortBy}
+                        onFilterChange={setFilters}
+                        onSortChange={setSortBy} />
+                </div>
+            </section>
 
-            <TaskList
-            tasks={sorted}
-            onStatusChange={handleStatusChange}
-            onDelete={handleDelete}
-            onEdit={handleEdit} />
+            <section className="tasks-section">
+                <TaskList
+                    tasks={sorted}
+                    onStatusChange={handleStatusChange}
+                    onDelete={handleDelete}
+                    onEdit={handleEdit} />
+            </section>
         </div>
     );
 }

@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import type { TaskFormData, TaskFormErrors, TaskFormProps } from "../../types";
 import { validateTask } from "../../utils/taskUtils";
 
-function TaskForm ({onAddTask, onUpdateTask, editingTask}: TaskFormProps) {
+function TaskForm({ onAddTask, onUpdateTask, editingTask }: TaskFormProps) {
     // ADD STATE FOR FORM DATA AND ERROR
-    const [formData, setFormData] = useState<TaskFormData> ({
+    const [formData, setFormData] = useState<TaskFormData>({
         title: "",
         description: "",
         priority: "medium",
@@ -15,7 +15,7 @@ function TaskForm ({onAddTask, onUpdateTask, editingTask}: TaskFormProps) {
 
     // SYNC EDIT CHANGES WITH useEffect
     useEffect(() => {
-        if(editingTask) {
+        if (editingTask) {
             setFormData({
                 title: editingTask.title,
                 description: editingTask.description,
@@ -23,7 +23,7 @@ function TaskForm ({onAddTask, onUpdateTask, editingTask}: TaskFormProps) {
                 dueDate: editingTask.dueDate || "",
             });
         }
-    },[editingTask])
+    }, [editingTask]);
 
 
     // CALLBACK FUNCTION FOR INPUT 
@@ -46,12 +46,12 @@ function TaskForm ({onAddTask, onUpdateTask, editingTask}: TaskFormProps) {
         setErrors(validationErrors);
 
         // STOP FUNCTION EARLY IF THERE ARE ERRORS
-        if (Object.keys(validationErrors).length > 0) return; 
+        if (Object.keys(validationErrors).length > 0) return;
 
         // LOGIC FOR UPDATING TASK
-        if(editingTask) {
+        if (editingTask) {
             onUpdateTask(editingTask.id, formData);
-        } else{
+        } else {
             onAddTask(formData);
         }
 
@@ -66,42 +66,41 @@ function TaskForm ({onAddTask, onUpdateTask, editingTask}: TaskFormProps) {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input 
-            name="title"
-            placeholder="Title"
-            value={formData.title}
-            onChange={handleChange} />
-            {errors.title && <p>{errors.title}</p>}
-
-            <input
-            name="description"
-            placeholder="Description"
-            value={formData.description}
-            onChange={handleChange} />
-            {errors.description && <p>{errors.description}</p>}
-
-            <select 
-            name="priority"
-            value={formData.priority}
-            onChange={handleChange} >
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
-            </select>
-            {errors.priority && <p>{errors.priority}</p>}
-
-            <input 
-            type="date"
-            name="dueDate"
-            value={formData.dueDate || ""} 
-            onChange={handleChange} />
-            {errors.dueDate && <p>{errors.dueDate}</p>}
-
-            <button type="submit">
-                {editingTask ? "Update Task" : "Add Task"}
-            </button>
-        </form>
+        <div className="task-form-card">
+            <h2>Add New Task</h2>
+            <form onSubmit={handleSubmit}>
+                <input
+                    name="title"
+                    placeholder="Title"
+                    value={formData.title}
+                    onChange={handleChange} />
+                {errors.title && <p>{errors.title}</p>}
+                <input
+                    name="description"
+                    placeholder="Description"
+                    value={formData.description}
+                    onChange={handleChange} />
+                {errors.description && <p>{errors.description}</p>}
+                <select
+                    name="priority"
+                    value={formData.priority}
+                    onChange={handleChange} >
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                {errors.priority && <p>{errors.priority}</p>}
+                <input
+                    type="date"
+                    name="dueDate"
+                    value={formData.dueDate || ""}
+                    onChange={handleChange} />
+                {errors.dueDate && <p>{errors.dueDate}</p>}
+                <button type="submit">
+                    {editingTask ? "Update Task" : "Add Task"}
+                </button>
+            </form>
+        </div>
     );
 }
 
