@@ -1,18 +1,145 @@
-## Overview
+# Task Dashboard
 
-Create a Task Management Dashboard using React and TypeScript. Build a functional, real-world dashboard application to test your understanding of React components, state management, TypeScript integration, form handling, and component composition.
+A modern task management application built with **React** and **TypeScript** that helps users organize tasks, manage priorities, track progress, and stay productive through an intuitive dashboard interface.
 
-### Built with
+---
 
-- CSS custom properties
-- [React] - TS library
+## Features
 
-### Useful resources
+* Create, edit, and delete tasks
+* Update task status (Todo, In Progress, Done)
+* Assign priority levels (Low, Medium, High)
+* Set due dates
+* Search tasks by title
+* Filter by status and priority
+* Sort by due date or priority
+* Responsive dashboard layout
+* Modern glassmorphism-inspired UI
+* Form validation for task creation and editing
 
-- TypeScript Docs (https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type)
-- React Dev [keys] (https://react.dev/learn/rendering-lists#keeping-list-items-in-order-with-key)
-- React Dev [useEffect] (https://react.dev/reference/react/useEffect)
+---
 
-# Reflection
+## Screenshots
 
-I implemented React and TypeScript by using components to handle different sections of the Dashboard and by defining interfaces with typing. The biggest challenge I faced was making a plan and organizing where I wanted to start in the project and what I wanted to start with. I had to read over the directions several times and create the hierarchy of the components first, then I was able to plan my approach a little better. For state management, after I determined the hierarchy of the components I started to define each ones responsibility. I put the state management in the Dashboard component because it is the parent component and acts as the main controller for the app. I wasn't able to add data persistence yet, but I will revisit this app and add it later on. I will also add more styling.
+### Dashboard
+
+Replace this with your screenshot after adding it to the project.
+
+```md
+![Dashboard](./src/assets/dashboard1.png)
+```
+```md
+![Dashboard](./src/assets/dashboard2.png)
+```
+
+### Mobile View
+
+```md
+![Mobile View](./src/assets/mobileview1.png)![Mobile View](./src/assets/mobileview2.png)
+```
+
+---
+
+## Built With
+
+* React
+* TypeScript
+* CSS3
+* Vite
+* React Hooks (`useState`, `useEffect`)
+* Component-Based Architecture
+
+---
+
+## Project Structure
+
+```text
+src
+├── components
+│   ├── Dashboard
+│   ├── TaskFilter
+│   ├── TaskForm
+│   ├── TaskItem
+│   └── TaskList
+├── styles
+│   ├── global.css
+│   ├── Dashboard.css
+│   ├── TaskForm.css
+│   ├── TaskFilter.css
+│   ├── TaskList.css
+│   └── TaskItem.css
+├── types
+├── utils
+└── main.tsx
+```
+
+---
+
+## Getting Started
+
+### Clone the repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/task-dashboard.git
+```
+
+### Navigate to the project
+
+```bash
+cd task-dashboard
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start the development server
+
+```bash
+npm run dev
+```
+
+Open your browser and visit:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## What I Learned
+
+Building this project strengthened my understanding of:
+
+* React component architecture
+* TypeScript interfaces and type safety
+* State management with React Hooks
+* Form validation
+* Conditional rendering
+* Reusable components
+* Responsive UI design
+* Modern CSS layouts using Flexbox and Grid
+* Building maintainable, scalable front-end applications
+
+---
+
+## Future Improvements
+
+* Drag-and-drop task management
+* Local storage persistence
+* Dark/light theme toggle
+* Task categories or tags
+* Notifications
+* User authentication
+* Backend API integration
+* Database persistence
+* Kanban board view
+
+
+---
+
+## Author
+
+**Valerie Bolden**
