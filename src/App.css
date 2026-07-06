@@ -154,35 +154,16 @@ button:hover {
     background: var(--accent-hover);
 }
 
-/* EDIT */
-.edit-btn {
-    background: #334155;
-    color: white;
-}
-
-.edit-btn:hover {
-    background: #475569;
-}
-
-/* DELETE */
-.delete-btn {
-    background: var(--danger);
-    color: white;
-}
-
-.delete-btn:hover {
-    background: #dc2626;
-}
-
 /* BADGES */
 .priority {
     display: inline-flex;
     align-items: center;
     padding: .35rem .8rem;
     border-radius: 999px;
-    font-size: .8rem;
+    font-size: .7rem;
     font-weight: 600;
     color: white;
+    text-transform: uppercase;
 }
 
 .priority.low {
@@ -237,5 +218,11 @@ button:hover {
     .dashboard {
         width: 95%;
         margin: 2rem auto;
+    }
+}
+
+@media (max-width: 500px) {
+    .task-footer {
+        flex-direction: column;
     }
 }
