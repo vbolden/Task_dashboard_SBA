@@ -27,10 +27,6 @@ A modern task management application built with **React** and **TypeScript** tha
 
 ![Dashboard](./src/assets/dashboard2.png)
 
-### Mobile View
-
-![Mobile View](./src/assets/mobileview1.png)![Mobile View](./src/assets/mobileview2.png)
-
 ---
 
 ## Built With
