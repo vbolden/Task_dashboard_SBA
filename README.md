@@ -126,7 +126,6 @@ Building this project strengthened my understanding of:
 * Database persistence
 * Kanban board view
 
-
 ---
 
 ## Author
