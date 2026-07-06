@@ -23,20 +23,13 @@ A modern task management application built with **React** and **TypeScript** tha
 
 ### Dashboard
 
-Replace this with your screenshot after adding it to the project.
-
-```md
 ![Dashboard](./src/assets/dashboard1.png)
-```
-```md
+
 ![Dashboard](./src/assets/dashboard2.png)
-```
 
 ### Mobile View
 
-```md
 ![Mobile View](./src/assets/mobileview1.png)![Mobile View](./src/assets/mobileview2.png)
-```
 
 ---
 
